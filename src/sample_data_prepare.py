@@ -10,7 +10,7 @@ def sample_data_prepare():
     src/tmp/dataset_ml-1m 에 해당 public dataset을 넣어 주어야 함
     """
     base_dir = os.path.abspath(os.path.dirname('__file__'))
-    data_dir = os.path.join(base_dir, 'tmp', 'dataset_ml-1m')
+    data_dir = os.path.join(base_dir, 'src', 'tmp', 'dataset_ml-1m')
 
     # UserID::Gender::Age::Occupation::Zip-code
     user_table = pd.read_table(os.path.join(data_dir, 'users.dat'), sep='::', encoding='utf-8', header=None)

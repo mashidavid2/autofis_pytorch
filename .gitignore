@@ -1,0 +1,13 @@
+.vscode
+.DS_Store
+
+*.pyc
+*.dat
+*.csv
+*.h5
+
+
+/tmp
+
+Dockerfile
+.dockerignore

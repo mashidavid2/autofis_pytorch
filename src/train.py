@@ -10,48 +10,15 @@ module_path = os.path.abspath(os.path.join(os.path.dirname(os.path.abspath(__fil
 if module_path not in sys.path:
     sys.path.append(module_path)
 #sys.path.append(os.path.abspath(__file__))
-from mlplatform_lib.api_client import ApiClient
-from mlplatform_lib.dataclass.model import ModelPredefinedaiDto, ModelInfoDto
-from mlplatform_lib.mlplatform import MlPlatformApi
-from mlplatform_lib.predefinedai import PredefinedAIApi, PredefinedAIArgumentParser
-from mlplatform_lib.predefinedai.predefinedai_config_parser import PredefinedAIConfigParser
 from classes import ColumnInfo, ModelInfoMapper, RecommendationInfo
 from executor import ExecutorFactory
 from preprocess import TableReader
 from utils import from_dict, yaml_to_model_dict, yaml_to_config_dict
 
-# api_client = ApiClient(server_config_path="../config/server_config.yaml")
-# predefinedai_api = PredefinedAIApi(api_client=api_client)
-
 package_path = path.dirname(path.dirname(path.abspath(__file__)))
 config_path = path.join(package_path,'config')
 
 def train():
-#     parser = PredefinedAIConfigParser(
-#         data_config_path='../config/data_config_test.yaml',
-#         model_config_path='../config/autofis_model_config.yaml',
-#         stage_config_path='../config/stage_config.yaml'
-#     )
-
-#     user_path = predefinedai_api.download_train_csv_from_data_key('user_feature_data')
-#     item_path = predefinedai_api.download_train_csv_from_data_key('item_feature_data')
-#     interaction_path = predefinedai_api.download_train_csv_from_data_key('user_item_interaction_data')
-#     column_dict = {}
-
-#     column_dict.update(parser.get_data_config_dict_from_data_key('user_feature_data'))
-#     column_dict.update(parser.get_data_config_dict_from_data_key('item_feature_data'))
-#     column_dict.update(parser.get_data_config_dict_from_data_key('user_item_interaction_data'))
-
-#     model_name = parser.get_model_name()
-#     model_info_dict = {}
-#     for sub_model_name in parser.get_sub_model_name_list():
-#         model_info_dict[sub_model_name] = parser.get_model_hyperparameters_dict(sub_model_name)
-#         model_info_dict[sub_model_name]['model_name'] = sub_model_name
-
-#     train_dir = predefinedai_api.get_train_path()
-
-    # recommendation_info = RecommendationInfo(args.recommendation_info)
-
     #for local use
     model_name = ''
     with open(path.join(config_path,'autofis_model_config.yaml'),'r') as f:
@@ -94,42 +61,6 @@ def train():
         item_file_path=item_path,
         save_dir=save_dir,
     )
-
-    model_predefinedai_dto = ModelPredefinedaiDto(
-        name=model_name,
-        description=f'{model_name} model info',
-        model_path=train_dir,
-        algorithm='recommendation',
-        metric=str(list(evaluation.__dict__.keys())),
-        metric_result=json.dumps(evaluation.__dict__),
-    )
-
-    # model_predefinedai_dto = predefinedai_api.insert_model(model=model_predefinedai_dto)
-
-    #####################################################################################################
-    # already erased in the original code of SeungHyun Yoo
-    # recommendation_info_dto = ModelInfoDto(type='RecommendationInfo', result=args.recommendation_info)
-    # predefinedai_api.insert_model_info(
-    #     model_id=model_predefinedai_dto.id, model_info=recommendation_info_dto
-    # )
-    ######################################################################################################
-
-    # model_result_dto = ModelInfoDto(type='Result', result=json.dumps(evaluation.__dict__))
-    # predefinedai_api.insert_model_info(
-    #     model_id=model_predefinedai_dto.id, model_info=model_result_dto
-    # )
-
-    table_reader = TableReader(
-        base_dir=train_dir,
-        column_info=from_dict(ColumnInfo, column_dict)
-    )
-    user_info_str = table_reader.get_user_info_str()
-
-    # user_info_dto = ModelInfoDto(type='UserInfo', result=user_info_str)
-    # predefinedai_api.insert_model_info(
-    #     model_id=model_predefinedai_dto.id, model_info=user_info_dto
-    # )
-
 
 def parse_train_args():
     parser = argparse.ArgumentParser()
