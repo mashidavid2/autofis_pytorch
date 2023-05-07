@@ -5,6 +5,7 @@
 *.dat
 *.csv
 *.h5
+*.pkl
 
 
 /tmp
