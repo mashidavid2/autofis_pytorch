@@ -1,0 +1,51 @@
+displayName: CatBoost
+key: CatBoost
+description: ''
+modelConfigs:
+  - displayName: CatBoost
+    key: CatBoost
+    description: ''
+    hyperparameters:
+      - displayName: 'Epoch'
+        key: epoch
+        min: 1
+        max: 2000
+        value: 1000
+        type: Integer
+        unitStep: 10
+        description: ''
+      - displayName: 'Learning Rate'
+        key: learning_rate
+        min: 0.0001
+        max: 1.0
+        value: 0.01
+        type: Float
+        unitStep: 0.0001
+        description: ''
+      - displayName: 'Batch Size'
+        key: batch_size
+        min: 128
+        max: 4096
+        value: 2048
+        type: MultipleOf2
+        unitStep: 1
+        description: ''
+      - displayName: 'Tree Depth'
+        key: depth
+        min: 1
+        max: 10
+        value: 10
+        type: Interger
+        unitStep: 1
+        description: ''
+      - displayName: 'Number of negative sample per Positive sample'
+        key: num_negative
+        min: 1
+        max: 8
+        value: 4
+        type: Integer
+        unitStep: 1
+        description: ''
+
+
+

@@ -1,0 +1,72 @@
+displayName: AutoFis
+key: AutoFis
+description: ''
+modelConfigs:
+  - displayName: AutoFis
+    key: AutoFis
+    description: ''
+    hyperparameters:
+      - displayName: 'Epoch'
+        key: epoch
+        min: 1
+        max: 1000
+        value: 100
+        group: AlgorithmHyperparameter
+        type: Integer
+        unitStep: 1
+        description: ''
+      - displayName: 'Learning Rate'
+        key: learning_rate
+        min: 0.0001
+        max: 1.0
+        value: 0.001
+        group: AlgorithmHyperparameter
+        type: Float
+        unitStep: 0.0001
+        description: ''
+      - displayName: 'Batch Size'
+        key: batch_size
+        min: 128
+        max: 4096
+        value: 2048
+        group: AlgorithmHyperparameter
+        type: MultipleOf2
+        unitStep: 1
+        description: ''
+      - displayName: 'Latent Dimension'
+        key: latent_dim
+        min: 5
+        max: 40
+        value: 20
+        group: ModelHyperparameter
+        type: Integer
+        unitStep: 1
+        description: ''
+      - displayName: 'Number of negative sample per Positive sample'
+        key: num_negative
+        min: 1
+        max: 8
+        value: 4
+        group: SamplingHyperparameter
+        type: Integer
+        unitStep: 1
+        description: ''
+#      - displayName: 'Target Metric'
+#        key: target_metric
+#        values:
+#          - displayName: 'Loss'
+#            key: loss
+#            description: ''
+#          - displayName: 'Mean Average Precision'
+#            key: map
+#            description: ''
+#        value:
+#          displayName: 'Loss'
+#          key: loss
+#          description: ''
+#        type: Categorical
+#        group: MetricHyperparameter
+#        description: ''
+
+
+

@@ -1,0 +1,13 @@
+tf_config = {}
+tf_config['env'] = 'cpu'
+tf_config['dtype'] = 'float32'
+tf_config['scale'] = 0.001
+tf_config['minval'] = - tf_config['scale']
+tf_config['maxval'] = tf_config['scale']
+tf_config['mean'] = 0
+tf_config['stddev'] = 0.001
+tf_config['sigma'] = tf_config['stddev']
+tf_config['const_value'] = 0
+tf_config['rnd_type'] = 'uniform'
+tf_config['factor_type'] = 'avg'
+tf_config['magnitude'] = 3

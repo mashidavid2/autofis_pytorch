@@ -1,0 +1,21 @@
+# hyperdata config
+hyperdataAddr: http://192.1.1.96:32248
+proauthAddr: http://192.1.1.96:32324
+userId: seunghyun
+userPassword: Miracle1!
+projectName: seunghyun
+
+# mlplatform config
+experimentId: 1
+trainId: 1
+inferenceId: 1
+servingId: 1
+trainDoName: movie
+inferenceDoName: movie
+trainDataObjectInfoList:
+  - key: 'user_feature_data'
+    doName: movie_user_feature
+  - key: 'item_feature_data'
+    doName: movie_item_feature
+  - key: 'user_item_interaction_data'
+    doName: movie_interaction

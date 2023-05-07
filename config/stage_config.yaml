@@ -1,0 +1,30 @@
+train:
+  args: []
+  envs: []
+
+retrain:
+  args: []
+  envs: []
+
+inference:
+  args:
+    - displayName: 'User ID'
+      key: user_id
+      value: null
+      group: Arg
+      type: String
+      description: ''
+    - displayName: 'Top K'
+      key: top_k
+      min: 5
+      max: 20
+      value: 10
+      group: Arg
+      type: Integer
+      unitStep: 1
+      description: ''
+  envs: []
+
+serving:
+  args: []
+  envs: []

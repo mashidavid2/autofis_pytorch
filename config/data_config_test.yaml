@@ -1,0 +1,83 @@
+key: "personalized_item_recommendation"
+description: ''
+dataConfigs:
+  - displayName: 'User Feature Data'
+    key: user_feature_data
+    configurations:
+    - displayName: 'User Feature Columns'
+      key: user_feature_columns
+      type: Columns
+      value:
+        - name: 'Gender'
+          type: Categorical
+        - name: 'Age'
+          type: Numerical
+        - name: 'Occupation'
+          type: Categorical
+      required: True
+      description: ''
+    - displayName: 'User ID Column'
+      key: user_id_column
+      type: Column
+      value:
+        name: 'UserID'
+        type: Categorical
+      required: True
+      description: ''
+    description: ''
+  - displayName: 'Item Feature Data'
+    key: item_feature_data
+    configurations:
+      - displayName: 'Item Feature Columns'
+        type: Columns
+        key: item_feature_columns
+        value:
+          - name: 'Genres'
+            type: Categorical
+          - name: 'Year'
+            type: Numerical
+        required: True
+        description: ''
+      - displayName: 'Item ID Column'
+        type: Column
+        key: item_id_column
+        value:
+          name: 'MovieID'
+          type: Categorical
+        required: True
+        description: ''
+    description: ''
+  - displayName: 'User-Item Interaction Data'
+    key: user_item_interaction_data
+    configurations:
+      - displayName: 'User ID Column'
+        type: Column
+        key: user_id_column
+        value:
+          name: 'UserID'
+          type: Categorical
+        required: True
+        description: ''
+      - displayName: 'Item ID Column'
+        type: Column
+        key: item_id_column
+        value:
+          name: 'MovieID'
+          type: Categorical
+        required: True
+        description: ''
+      - displayName: 'Rating Column'
+        type: Column
+        key: rating_column
+        value:
+          name: 'Rating'
+          type: Numerical
+        required: False
+        description: ''
+      - displayName: 'TimeStamp Column'
+        type: Column
+        key: timestamp_column
+        value: null
+        required: False
+        description: ''
+    description: ''
